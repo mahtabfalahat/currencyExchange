@@ -1,62 +1,71 @@
 import React, { Component } from 'react';
+import classes from './RenderCurrency.module.css';
 
 class RenderCurrency extends Component {
-state = {
-    buyCurrency : [] , 
-    sellCurrency : []
-}
+    state = {
+        buyCurrency: [],
+        sellCurrency: []
+    }
     componentDidMount() {
         console.log('------------------');
         console.log(this.props.currency);
-        let fetchBuyCurrency = [] ; 
-        for(let i = 0 ; i < 15 ; i++){
+        let fetchBuyCurrency = [];
+        for (let i = 0; i < 15; i++) {
             fetchBuyCurrency.push({
-                ...this.props.currency[i] , 
-                id : i
+                ...this.props.currency[i],
+                id: i
             });
         }
-        let fetchSellCurrency = [] ; 
-        for(let j = 16 ; j < 30 ; j++){
+        let fetchSellCurrency = [];
+        for (let j = 16; j < 30; j++) {
             fetchSellCurrency.push({
-                ...this.props.currency[j] , 
-                id : j
+                ...this.props.currency[j],
+                id: j
             });
         }
         this.setState({
-            buyCurrency : fetchBuyCurrency , 
-            sellCurrency : fetchSellCurrency
+            buyCurrency: fetchBuyCurrency,
+            sellCurrency: fetchSellCurrency
         });
     }
     render() {
-        const countries = ['usd' , 'eur' , 'aed' , 'inr' , 'try' , 'rub' , 'cny' , 'krw' , 'chf' , 'jpy' , 'cad' , 'gbp' , 'sek' , 'nok' , 'iqd' , 'aud'] ; 
+        const countries = ['usd', 'eur', 'aed', 'inr', 'try', 'rub', 'cny', 'krw', 'chf', 'jpy', 'cad', 'gbp', 'sek', 'nok', 'iqd'];
         return (
-            <div>
-                <p>mahtab</p>
-                {countries.map((item,index)=>{
-                    return(
-                        <div key = {index} >
-                            <p>{item}</p>
+            <div className={classes.Container}>
+                <div className={classes.curreucy} >
+                 <div className = {classes.imageCountry}>vvvv</div>
+                    <div className={classes.coutryName}>
+                        <div>
+                            {countries.map((item, index) => {
+                                return (
+                                    <div className={classes.infoBox} key={index} >
+                                        <p>{item}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
-                    )
-                })}
-                <p>-----------------------------</p>
-                 {this.state.buyCurrency.map((buy) => {
-                    return (
-                        <div key={buy.id} style = {{border : '1px solid black'}}>
-                            <p>{buy.slug}</p>
-                            <p>{buy.p}</p>
+                    </div>
+                    <div className={classes.currencyBox}>
+                        <div>
+                            {this.state.buyCurrency.map((buy) => {
+                                return (
+                                    <div className={classes.infoBox} key={buy.id}>
+                                        <p>buy :{buy.p}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
-                    )
-                })}
-                 <p>-----------------------------</p>
-                 {this.state.sellCurrency.map((sell) => {
-                    return (
-                        <div key={sell.id}  style = {{border : '1px solid black'}}>
-                            <p>{sell.slug}</p>
-                            <p>{sell.p}</p>
+                        <div>
+                            {this.state.sellCurrency.map((sell) => {
+                                return (
+                                    <div key={sell.id} className={classes.infoBox}  >
+                                        <p>sell :{sell.p}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
-                    )
-                })}
+                    </div>
+                </div>
             </div>
         )
     }

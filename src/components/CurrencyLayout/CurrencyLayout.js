@@ -26,7 +26,6 @@ class CurrencyLayout extends Component {
     render() {
         return (
             <>
-                <div>hello</div>
                 <RenderCurrency
                     currency={this.state.currency} 
                 />
