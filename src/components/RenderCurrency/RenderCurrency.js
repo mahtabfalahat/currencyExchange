@@ -33,7 +33,7 @@ class RenderCurrency extends Component {
         return (
             <div className={classes.Container}>
                 <div className={classes.curreucy} >
-                 <div className = {classes.imageCountry}>vvvv</div>
+                 <div className = {classes.imageCountry}>ax</div>
                     <div className={classes.coutryName}>
                         <div>
                             {countries.map((item, index) => {
