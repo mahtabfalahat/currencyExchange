@@ -7,7 +7,7 @@ class RenderCurrency extends Component {
         sellCurrency: []
     }
 componentDidUpdate(){
-    console.log('components did update'); 
+    console.log('components did update '); 
 }
     componentDidMount() {
         console.log('------------------');
