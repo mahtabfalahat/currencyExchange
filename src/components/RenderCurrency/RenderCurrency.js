@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
 import classes from './RenderCurrency.module.css';
+import usd from '../../assets/images/usd.png';
+import eur from '../../assets/images/eur.png';
+import aed from '../../assets/images/uae.png';
+import inr from '../../assets/images/ind.png';
+import tri from '../../assets/images/try.png';
+import rub from '../../assets/images/rub.png';
+import cny from '../../assets/images/cny.png';
+import krw from '../../assets/images/krw.png';
+import chf from '../../assets/images/chf.png';
+import jpy from '../../assets/images/jpy.gif';
+import cad from '../../assets/images/cad.png';
+import gbp from '../../assets/images/gbp.jpg';
+import sek from '../../assets/images/sek.jpg';
+import nok from '../../assets/images/nok.png';
+import iqd from '../../assets/images/iqd.png';
 
 class RenderCurrency extends Component {
     state = {
         buyCurrency: [],
         sellCurrency: []
     }
-componentDidUpdate(){
-    console.log('components did update '); 
-}
+    componentDidUpdate() {
+        console.log('components did update ');
+    }
     componentDidMount() {
         console.log('------------------');
         console.log(this.props.currency);
@@ -33,11 +48,29 @@ componentDidUpdate(){
     }
 
     render() {
+        const photos = [usd, eur, aed, inr, tri, rub, cny, krw, chf, jpy, cad, gbp, sek, nok, iqd];
         const countries = ['usd', 'eur', 'aed', 'inr', 'try', 'rub', 'cny', 'krw', 'chf', 'jpy', 'cad', 'gbp', 'sek', 'nok', 'iqd'];
         return (
             <div className={classes.Container}>
+
                 <div className={classes.curreucy} >
-                    <div className={classes.imageCountry}>ax</div>
+                    <div className={classes.imageCountry}>
+                        <div>
+                            {photos.map((e, i) =>
+                                <div className={classes.infoBox} key={i}>
+                                   <div className = {classes.imgHolder}>
+                                    <img
+                                        className={classes.countryPic}
+                                        
+                                        src={e}
+                                        alt="photo"
+                                        key={i}
+                                    />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                     <div className={classes.coutryName}>
                         <div>
                             {countries.map((item, index) => {
@@ -56,7 +89,7 @@ componentDidUpdate(){
                                     <div className={classes.infoBox} key={buy.id}>
                                         <p className={classes.titleText}>buy: </p>
                                         <p className={classes.textCost}>{buy.p}</p>
-                                       
+
                                     </div>
                                 )
                             })}
