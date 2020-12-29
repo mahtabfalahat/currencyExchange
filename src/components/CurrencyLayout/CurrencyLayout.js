@@ -49,7 +49,7 @@ class CurrencyLayout extends Component {
             <>
                 <div className={classes.FooterBox}>
                     <div className={classes.lastUpdateBox}>
-                        <p className={classes.textLastUpdate}>last update : {this.state.lastUpdated}</p>
+                        <p className={classes.textLastUpdate}>last update  : {this.state.lastUpdated}</p>
                     </div>
                     <div className = {classes.refreshContainer}>
                         <SyncIcon className={classes.refreshIcon} onClick={this.refreshCurrencyExchange} />
