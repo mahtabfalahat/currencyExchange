@@ -1,5 +1,5 @@
 .Container{
-    background-color: #111010;
+    background-color: #2b2b2b;
 }
 .curreucy{
     width: 100%;
@@ -9,6 +9,7 @@
     display: flex;
     padding: 5px;
     border-radius: 2px;
+   
 }
 .infoBox {
     width: 100%;
@@ -20,7 +21,7 @@
     justify-content: space-between;
     text-align: center;
     border-bottom: 2px solid black;
-    background-color: #242323;
+    background-color: #333333;
     color: #ffffff;
     padding: 0px 8px;
     
@@ -30,12 +31,14 @@
     height: 100%;
     background-color: bisque;
     margin: auto;
+    float: left;
 }
 .coutryName{
     width:35%;    
     height: 100%;
     margin: auto;
     background-color: burlywood;
+    text-align: center;
 }
 .currencyBox{
     width: 50%;
@@ -43,4 +46,17 @@
     background-color: bisque;
     display: flex;
     flex-direction: row;
+}
+.textCountryName{
+    text-align: center;
+    font-weight: bold;
+}
+.textCost{
+    text-align: center;
+    color: #dec709;
+    font-size: 14px;
+}
+.titleText{
+font-size: 14px;
+color : #e7e6e6 ; 
 }

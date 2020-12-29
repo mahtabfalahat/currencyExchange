@@ -6,6 +6,9 @@ class RenderCurrency extends Component {
         buyCurrency: [],
         sellCurrency: []
     }
+componentDidUpdate(){
+    console.log('components did update'); 
+}
     componentDidMount() {
         console.log('------------------');
         console.log(this.props.currency);
@@ -28,18 +31,19 @@ class RenderCurrency extends Component {
             sellCurrency: fetchSellCurrency
         });
     }
+
     render() {
         const countries = ['usd', 'eur', 'aed', 'inr', 'try', 'rub', 'cny', 'krw', 'chf', 'jpy', 'cad', 'gbp', 'sek', 'nok', 'iqd'];
         return (
             <div className={classes.Container}>
                 <div className={classes.curreucy} >
-                 <div className = {classes.imageCountry}>ax</div>
+                    <div className={classes.imageCountry}>ax</div>
                     <div className={classes.coutryName}>
                         <div>
                             {countries.map((item, index) => {
                                 return (
                                     <div className={classes.infoBox} key={index} >
-                                        <p>{item}</p>
+                                        <p className={classes.textCountryName} >{item}</p>
                                     </div>
                                 )
                             })}
@@ -50,7 +54,9 @@ class RenderCurrency extends Component {
                             {this.state.buyCurrency.map((buy) => {
                                 return (
                                     <div className={classes.infoBox} key={buy.id}>
-                                        <p>buy :{buy.p}</p>
+                                        <p className={classes.titleText}>buy: </p>
+                                        <p className={classes.textCost}>{buy.p}</p>
+                                       
                                     </div>
                                 )
                             })}
@@ -59,7 +65,8 @@ class RenderCurrency extends Component {
                             {this.state.sellCurrency.map((sell) => {
                                 return (
                                     <div key={sell.id} className={classes.infoBox}  >
-                                        <p>sell :{sell.p}</p>
+                                        <p className={classes.titleText}>sell: </p>
+                                        <p className={classes.textCost}>{sell.p}</p>
                                     </div>
                                 )
                             })}
